@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>桃佳 MOMOKA | カラコンPR コンポジ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --pink: #F5A0C0;
+  --pink-deep: #D4557C;
+  --pink-pale: #FDE8F0;
+  --nude: #F2DDD5;
+  --dark: #1A0A10;
+  --charcoal: #2D1820;
+  --text: #3A1825;
+  --muted: #9A7585;
+  --white: #FEFAFB;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ===== COVER ===== */
+.cover {
+  min-height: 100vh;
+  background: var(--dark);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,160,192,0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cover-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.cover-eyebrow {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 24px;
+}
+
+.cover-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.cover-title em {
+  font-style: italic;
+  color: var(--pink);
+}
+
+.cover-sub {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  margin-top: 16px;
+  letter-spacing: 0.1em;
+}
+
+.cover-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--pink);
+  margin: 32px 0;
+}
+
+.cover-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cover-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cover-meta-item .label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  width: 100px;
+}
+
+.cover-meta-item .value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.cover-meta-item .value span {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--pink);
+  margin-left: 4px;
+}
+
+.cover-right {
+  background: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cover-right::after {
+  content: 'MOMOKA';
+  position: absolute;
+  bottom: 40px; right: 40px;
+  font-family: 'Playfair Display', serif;
+  font-size: 80px;
+  font-weight: 700;
+  color: rgba(245,160,192,0.08);
+  white-space: nowrap;
+  letter-spacing: -0.02em;
+}
+
+.avatar-placeholder {
+  width: 320px;
+  height: 420px;
+  border-radius: 160px 160px 0 0;
+  background: linear-gradient(180deg, rgba(245,160,192,0.2) 0%, rgba(212,85,124,0.3) 100%);
+  border: 1px solid rgba(245,160,192,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-placeholder .note {
+  font-size: 12px;
+  color: rgba(245,160,192,0.7);
+  text-align: center;
+  padding: 0 40px;
+  line-height: 1.6;
+}
+
+.avatar-icon {
+  font-size: 48px;
+  opacity: 0.5;
+}
+
+.cover-badge {
+  position: absolute;
+  top: 40px; right: 40px;
+  background: var(--pink-deep);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border-radius: 2px;
+  z-index: 3;
+}
+
+/* ===== SECTION ===== */
+section {
+  padding: 100px 80px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 40px;
+}
+
+/* ===== PROFILE SECTION ===== */
+.profile-section {
+  background: var(--white);
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.profile-info table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.profile-info tr {
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.profile-info td {
+  padding: 14px 0;
+  font-size: 14px;
+}
+
+.profile-info td:first-child {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  width: 120px;
+  font-weight: 500;
+}
+
+.profile-info td:last-child {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.snsstats {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sns-card {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.sns-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+}
+
+.sns-card.instagram::before { background: linear-gradient(180deg, #F77737, #C13584); }
+.sns-card.tiktok::before { background: linear-gradient(180deg, #00F2EA, #FF0050); }
+
+.sns-platform {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.sns-followers {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.sns-handle {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.sns-metrics {
+  display: flex;
+  gap: 24px;
+}
+
+.sns-metric .num {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.sns-metric .lbl {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+/* ===== STRENGTH SECTION ===== */
+.strength-section {
+  background: var(--dark);
+  color: var(--white);
+}
+
+.strength-section .section-title { color: var(--white); }
+.strength-section .section-label { color: var(--pink); }
+
+.strength-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-top: 48px;
+}
+
+.strength-item {
+  background: var(--charcoal);
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.strength-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--pink);
+  transition: width 0.4s ease;
+}
+
+.strength-item:hover::after { width: 100%; }
+
+.strength-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: rgba(245,160,192,0.15);
+  line-height: 1;
+  margin-bottom: -20px;
+}
+
+.strength-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+
+.strength-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.8;
+}
+
+/* ===== MARKET DATA SECTION ===== */
+.market-section {
+  background: var(--pink-pale);
+}
+
+.market-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 16px;
+}
+
+.data-block {
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 40px rgba(212,85,124,0.08);
+}
+
+.data-block-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-deep);
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(212,85,124,0.15);
+}
+
+.big-stat {
+  margin-bottom: 32px;
+}
+
+.big-stat .num {
+  font-family: 'Playfair Display', serif;
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1;
+}
+
+.big-stat .unit {
+  font-size: 18px;
+  color: var(--pink-deep);
+  margin-left: 4px;
+}
+
+.big-stat .desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  font-size: 13px;
+}
+
+.stat-row:last-child { border-bottom: none; }
+
+.stat-row .stat-label { color: var(--muted); }
+.stat-row .stat-value { font-weight: 700; color: var(--dark); }
+
+.hashtag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.hashtag {
+  background: var(--pink-pale);
+  color: var(--pink-deep);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(212,85,124,0.2);
+}
+
+.hashtag .count {
+  font-size: 10px;
+  opacity: 0.7;
+  margin-left: 4px;
+}
+
+/* ===== CONTENT SECTION ===== */
+.content-section {
+  background: white;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.content-card {
+  border: 1px solid rgba(0,0,0,0.07);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.content-card-header {
+  background: var(--dark);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.platform-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.platform-dot.ig { background: linear-gradient(135deg, #F77737, #C13584); }
+.platform-dot.tt { background: linear-gradient(135deg, #00F2EA, #FF0050); }
+
+.content-card-platform {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+}
+
+.content-card-body {
+  padding: 28px;
+}
+
+.content-type {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ctype {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ctype-label {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.ctype-bar-wrap {
+  width: 200px;
+  height: 6px;
+  background: var(--pink-pale);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ctype-bar {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--pink), var(--pink-deep));
+}
+
+.ctype-pct {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--pink-deep);
+  width: 36px;
+  text-align: right;
+}
+
+/* ===== DELIVERABLE ===== */
+.deliverable-section {
+  background: linear-gradient(135deg, var(--dark) 0%, var(--charcoal) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.deliverable-section::before {
+  content: '';
+  position: absolute;
+  bottom: -150px; left: -150px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,160,192,0.15) 0%, transparent 70%);
+}
+
+.deliverable-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 48px;
+}
+
+.del-item {
+  background: rgba(255,255,255,0.04);
+  padding: 32px 24px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.del-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--pink);
+  margin-bottom: 8px;
+}
+
+.del-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 8px;
+}
+
+.del-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.6;
+}
+
+/* ===== QUOTE ===== */
+.quote-section {
+  background: var(--nude);
+  padding: 80px;
+  text-align: center;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--dark);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.quote-text em {
+  color: var(--pink-deep);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.quote-source {
+  margin-top: 32px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--dark);
+  padding: 40px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--white);
+}
+
+.footer-brand span { color: var(--pink); }
+
+.footer-note {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  text-align: right;
+  line-height: 1.8;
+}
+
+@media (max-width: 900px) {
+  .cover { grid-template-columns: 1fr; }
+  .cover-right { display: none; }
+  .profile-grid, .market-grid, .content-grid { grid-template-columns: 1fr; }
+  .strength-grid, .deliverable-grid { grid-template-columns: 1fr; }
+  section { padding: 60px 32px; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-badge">PR PROPOSAL 2026</div>
+  <div class="cover-left">
+    <div class="cover-eyebrow">Influencer Composition Sheet</div>
+    <div class="cover-title">桃佳<br><em>MOMOKA</em></div>
+    <div class="cover-sub">カラーコンタクトレンズ PRご提案</div>
+    <div class="cover-divider"></div>
+    <div class="cover-meta">
+      <div class="cover-meta-item">
+        <div class="label">Instagram</div>
+        <div class="value">216K <span>followers</span></div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">TikTok</div>
+        <div class="value">※<span>要確認</span></div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">SNS総計</div>
+        <div class="value">35万+ <span>followers</span></div>
+      </div>
+      <div class="cover-meta-item">
+        <div class="label">所属</div>
+        <div class="value" style="font-size:16px;">Cue's</div>
+      </div>
+    </div>
+  </div>
+  <div class="cover-right">
+    <div class="avatar-placeholder">
+      <div class="avatar-icon">🌸</div>
+      <div class="note">桃佳のプロフィール写真<br>をここに挿入</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<section class="profile-section">
+  <div class="section-label">Section 01</div>
+  <div class="section-title">プロフィール ＆ SNSデータ</div>
+  <div class="profile-grid">
+    <div class="profile-info">
+      <table>
+        <tr><td>名前</td><td>桃佳（MOMOKA）</td></tr>
+        <tr><td>活動歴</td><td>2021年〜（TikTok開設）</td></tr>
+        <tr><td>所属</td><td>Cue's（クリエイター事務所）</td></tr>
+        <tr><td>身長</td><td>169cm</td></tr>
+        <tr><td>主なジャンル</td><td>メイク・ファッション・ライフスタイル</td></tr>
+        <tr><td>代表コンテンツ</td><td>泣き顔メイク・あざといメイク</td></tr>
+        <tr><td>カラコン実績</td><td>日常投稿での愛用・カラコン動画多数</td></tr>
+        <tr><td>ターゲット層</td><td>Z世代・10〜20代女性</td></tr>
+      </table>
+    </div>
+    <div class="snsstats">
+      <div class="sns-card instagram">
+        <div class="sns-platform">📸 Instagram</div>
+        <div class="sns-followers">216K</div>
+        <div class="sns-handle">@moo_mo_k</div>
+        <div class="sns-metrics">
+          <div class="sns-metric">
+            <div class="num">317</div>
+            <div class="lbl">投稿数</div>
+          </div>
+          <div class="sns-metric">
+            <div class="num">423</div>
+            <div class="lbl">フォロー中</div>
+          </div>
+          <div class="sns-metric">
+            <div class="num">※要確認</div>
+            <div class="lbl">ENG率</div>
+          </div>
+        </div>
+      </div>
+      <div class="sns-card tiktok">
+        <div class="sns-platform">🎵 TikTok</div>
+        <div class="sns-followers">※要確認</div>
+        <div class="sns-handle">@peach12299</div>
+        <div class="sns-metrics">
+          <div class="sns-metric">
+            <div class="num">2021年〜</div>
+            <div class="lbl">活動開始</div>
+          </div>
+          <div class="sns-metric">
+            <div class="num">美容・メイク</div>
+            <div class="lbl">メインジャンル</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTH -->
+<section class="strength-section">
+  <div class="section-label">Section 02</div>
+  <div class="section-title">カラコンPRに選ばれる<br>3つの理由</div>
+  <div class="strength-grid">
+    <div class="strength-item">
+      <div class="strength-num">01</div>
+      <div class="strength-title">カラコン×メイクの<br>親和性が高い</div>
+      <div class="strength-desc">「泣き顔メイク」「あざといメイク」など目元にフォーカスしたコンテンツが代名詞。カラコンとの自然な連携が可能で、広告感なく商品を魅せられます。</div>
+    </div>
+    <div class="strength-item">
+      <div class="strength-num">02</div>
+      <div class="strength-title">ターゲット層の<br>コアに直撃</div>
+      <div class="strength-desc">10〜20代Z世代女性からの圧倒的な支持。カラコン購買層（10代後半〜20代女性）と完全に一致。認知から購買まで最短ルートで届きます。</div>
+    </div>
+    <div class="strength-item">
+      <div class="strength-num">03</div>
+      <div class="strength-title">Instagram × TikTok<br>クロス展開</div>
+      <div class="strength-desc">InstagramとTikTokを横断する発信力。静止画でのビジュアル訴求とリール・TikTok動画でのデモ訴求を同時に実現できます。</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARKET DATA -->
+<section class="market-section">
+  <div class="section-label">Section 03</div>
+  <div class="section-title">カラコン市場 × SNSデータ</div>
+  <div class="market-grid">
+    <div>
+      <div class="data-block">
+        <div class="data-block-title">🌍 カラコン市場規模</div>
+        <div class="big-stat">
+          <div class="num">$11.75B<span class="unit">→</span></div>
+          <div class="desc">世界コンタクトレンズ市場 2025年規模。2034年には$20.97B（CAGR 6.71%）に成長予測。<br>カラコンは美容需要でとりわけ高成長中。</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">日本コンタクトレンズ市場</div>
+          <div class="stat-value">年2,000億円超</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">カラコン購買者の主要年代</div>
+          <div class="stat-value">10〜20代女性</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">SNSが購買に影響する割合</div>
+          <div class="stat-value">Z世代 約90%</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">インフルエンサーPR市場（日本）</div>
+          <div class="stat-value">2026年 1,150億円予測</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="data-block">
+        <div class="data-block-title">📱 SNS × カラコン トレンド</div>
+        <div class="big-stat">
+          <div class="num">89<span class="unit">%</span></div>
+          <div class="desc">Z世代がSNSを情報収集の主要経路として利用。コスメ・カラコン購買の発端もSNS経由が大多数。</div>
+        </div>
+        <div style="margin-top: 24px;">
+          <div style="font-size:12px; color:var(--muted); margin-bottom:12px; letter-spacing:0.1em; text-transform:uppercase;">主要カラコン関連ハッシュタグ</div>
+          <div class="hashtag-list">
+            <div class="hashtag">#カラコン<span class="count">1億+再生</span></div>
+            <div class="hashtag">#カラコンレポ<span class="count">高需要</span></div>
+            <div class="hashtag">#カラコン着用</div>
+            <div class="hashtag">#デカ目</div>
+            <div class="hashtag">#コンタクト</div>
+            <div class="hashtag">#カラコン比較</div>
+            <div class="hashtag">#カラコンレビュー</div>
+            <div class="hashtag">#naural</div>
+          </div>
+        </div>
+        <div class="stat-row" style="margin-top:20px;">
+          <div class="stat-label">TikTok美容コスメPR効果</div>
+          <div class="stat-value">購買意向 3倍超</div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-label">Instagramリール ENG率（美容系）</div>
+          <div class="stat-value">フィード比 2〜3倍</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT MIX -->
+<section class="content-section">
+  <div class="section-label">Section 04</div>
+  <div class="section-title">想定コンテンツ構成</div>
+  <div class="content-grid">
+    <div class="content-card">
+      <div class="content-card-header">
+        <div class="platform-dot ig"></div>
+        <div class="content-card-platform">Instagram</div>
+      </div>
+      <div class="content-card-body">
+        <div class="content-type">
+          <div class="ctype">
+            <div class="ctype-label">リール（着用レビュー動画）</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:80%"></div></div>
+            <div class="ctype-pct">40%</div>
+          </div>
+          <div class="ctype">
+            <div class="ctype-label">カルーセル（メイク×カラコン比較）</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:50%"></div></div>
+            <div class="ctype-pct">25%</div>
+          </div>
+          <div class="ctype">
+            <div class="ctype-label">フィード写真（着用ビジュアル）</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:40%"></div></div>
+            <div class="ctype-pct">20%</div>
+          </div>
+          <div class="ctype">
+            <div class="ctype-label">ストーリーズ（日常使い・投票）</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:30%"></div></div>
+            <div class="ctype-pct">15%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-card">
+      <div class="content-card-header">
+        <div class="platform-dot tt"></div>
+        <div class="content-card-platform">TikTok</div>
+      </div>
+      <div class="content-card-body">
+        <div class="content-type">
+          <div class="ctype">
+            <div class="ctype-label">装着デモ動画（変化前後）</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:90%"></div></div>
+            <div class="ctype-pct">45%</div>
+          </div>
+          <div class="ctype">
+            <div class="ctype-label">メイクチュートリアル連動</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:60%"></div></div>
+            <div class="ctype-pct">30%</div>
+          </div>
+          <div class="ctype">
+            <div class="ctype-label">日常vlog・ナチュラル使い</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:30%"></div></div>
+            <div class="ctype-pct">15%</div>
+          </div>
+          <div class="ctype">
+            <div class="ctype-label">比較・選び方コンテンツ</div>
+            <div class="ctype-bar-wrap"><div class="ctype-bar" style="width:20%"></div></div>
+            <div class="ctype-pct">10%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DELIVERABLE -->
+<section class="deliverable-section">
+  <div class="section-label" style="color:var(--pink)">Section 05</div>
+  <div class="section-title" style="color:white">提案内容</div>
+  <div class="deliverable-grid">
+    <div class="del-item">
+      <div class="del-num">①</div>
+      <div class="del-title">Instagram<br>リール投稿</div>
+      <div class="del-desc">カラコン着用メイク動画。泣き顔メイク×カラコンの掛け合わせ</div>
+    </div>
+    <div class="del-item">
+      <div class="del-num">②</div>
+      <div class="del-title">TikTok<br>動画投稿</div>
+      <div class="del-desc">装着前後の変化・デモ動画。Z世代への拡散力最大化</div>
+    </div>
+    <div class="del-item">
+      <div class="del-num">③</div>
+      <div class="del-title">Instagram<br>ストーリーズ</div>
+      <div class="del-desc">日常使いシーン・購入リンク誘導・アンケート企画</div>
+    </div>
+    <div class="del-item">
+      <div class="del-num">④</div>
+      <div class="del-title">投稿数・<br>単価は別途</div>
+      <div class="del-desc">投稿数・期間・使用権等はご要望に合わせてご提案いたします</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-text">
+    カラコンは桃佳の<em>「目元コンテンツ」</em>と最も親和性の高いカテゴリ。<br>
+    Z世代への自然な訴求と、高いエンゲージメントを実現します。
+  </div>
+  <div class="quote-source">GOOD VIBES AGENCY</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">GOOD <span>VIBES</span> AGENCY</div>
+  <div class="footer-note">
+    本資料はクライアント提出用コンポジシートです<br>
+    数値は2026年4月時点の公開情報に基づきます
+  </div>
+</footer>
+
+</body>
+</html>
